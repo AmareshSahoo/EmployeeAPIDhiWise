@@ -58,7 +58,7 @@ let ToDo = sequelize.define('ToDo',{
       'operator':'',
       'value':''
     }],
-    'name':'index_date_index_549568'
+    'name':'index_date_index_304250'
   },{
     'using':'BTREE',
     'fields':[{
@@ -67,7 +67,7 @@ let ToDo = sequelize.define('ToDo',{
       'operator':'',
       'value':''
     }],
-    'name':'index_dueDate_index_96110'
+    'name':'index_dueDate_index_788531'
   }]
 }
 );

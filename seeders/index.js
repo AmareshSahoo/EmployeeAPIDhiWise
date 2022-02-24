@@ -13,27 +13,27 @@ const { Op } = require('sequelize');
 async function seedUser () {
   try {
     let user = await dbService.findOne(model.user,{
-      'username':'Hardy.McClure51',
+      'username':'Matilda.Price33',
       'isActive':true,
       'isDeleted':false
     });
-    if (!user || !user.isPasswordMatch('DasZpE7oOZLYItf') ) {
+    if (!user || !user.isPasswordMatch('E678RFIIoiNWSiJ') ) {
       let user = {
-        'password':'DasZpE7oOZLYItf',
-        'username':'Hardy.McClure51',
+        'password':'E678RFIIoiNWSiJ',
+        'username':'Matilda.Price33',
         'role':authConstant.USER_ROLE.User
       };
       await dbService.createOne(model.user,user);
     }
     let admin = await dbService.findOne(model.user,{
-      'username':'Lauren59',
+      'username':'Jalyn_Rowe41',
       'isActive':true,
       'isDeleted':false
     });
-    if (!admin || !admin.isPasswordMatch('tPlKY0bDGSPwnD7') ) {
+    if (!admin || !admin.isPasswordMatch('GopFY71GKlFtUlv') ) {
       let admin = {
-        'password':'tPlKY0bDGSPwnD7',
-        'username':'Lauren59',
+        'password':'GopFY71GKlFtUlv',
+        'username':'Jalyn_Rowe41',
         'role':authConstant.USER_ROLE.Admin
       };
       await dbService.createOne(model.user,admin);
@@ -46,7 +46,7 @@ async function seedUser () {
 /* seeds roles */
 async function seedRole () {
   try {
-    const roles = [ 'User', 'Admin', 'System_User' ];
+    const roles = [ 'User', 'System_User', 'Admin' ];
     for (let i = 0; i < roles.length; i++) {
       let result = await dbService.findOne(model.role,{
         name: roles[i],
@@ -98,214 +98,9 @@ async function seedRouteRole () {
   try {
     const routeRoles = [ 
       {
-        route: '/admin/user/create',
+        route: '/admin/customer/create',
         role: 'User',
         method: 'POST' 
-      },
-      {
-        route: '/admin/user/create',
-        role: 'Admin',
-        method: 'POST' 
-      },
-      {
-        route: '/admin/user/create',
-        role: 'System_User',
-        method: 'POST' 
-      },
-      {
-        route: '/admin/user/addbulk',
-        role: 'User',
-        method: 'POST' 
-      },
-      {
-        route: '/admin/user/addbulk',
-        role: 'Admin',
-        method: 'POST' 
-      },
-      {
-        route: '/admin/user/addbulk',
-        role: 'System_User',
-        method: 'POST' 
-      },
-      {
-        route: '/admin/user/list',
-        role: 'User',
-        method: 'POST' 
-      },
-      {
-        route: '/admin/user/list',
-        role: 'Admin',
-        method: 'POST' 
-      },
-      {
-        route: '/admin/user/list',
-        role: 'System_User',
-        method: 'POST' 
-      },
-      {
-        route: '/admin/user/:id',
-        role: 'User',
-        method: 'GET' 
-      },
-      {
-        route: '/admin/user/:id',
-        role: 'Admin',
-        method: 'GET' 
-      },
-      {
-        route: '/admin/user/:id',
-        role: 'System_User',
-        method: 'GET' 
-      },
-      {
-        route: '/admin/user/:id',
-        role: 'User',
-        method: 'POST' 
-      },
-      {
-        route: '/admin/user/:id',
-        role: 'Admin',
-        method: 'POST' 
-      },
-      {
-        route: '/admin/user/:id',
-        role: 'System_User',
-        method: 'POST' 
-      },
-      {
-        route: '/admin/user/count',
-        role: 'User',
-        method: 'POST' 
-      },
-      {
-        route: '/admin/user/count',
-        role: 'Admin',
-        method: 'POST' 
-      },
-      {
-        route: '/admin/user/count',
-        role: 'System_User',
-        method: 'POST' 
-      },
-      {
-        route: '/admin/user/aggregate',
-        role: 'User',
-        method: 'POST' 
-      },
-      {
-        route: '/admin/user/aggregate',
-        role: 'Admin',
-        method: 'POST' 
-      },
-      {
-        route: '/admin/user/aggregate',
-        role: 'System_User',
-        method: 'POST' 
-      },
-      {
-        route: '/admin/user/update/:id',
-        role: 'User',
-        method: 'PUT' 
-      },
-      {
-        route: '/admin/user/update/:id',
-        role: 'Admin',
-        method: 'PUT' 
-      },
-      {
-        route: '/admin/user/update/:id',
-        role: 'System_User',
-        method: 'PUT' 
-      },
-      {
-        route: '/admin/user/partial-update/:id',
-        role: 'User',
-        method: 'PUT'
-      },
-      {
-        route: '/admin/user/partial-update/:id',
-        role: 'Admin',
-        method: 'PUT'
-      },
-      {
-        route: '/admin/user/partial-update/:id',
-        role: 'System_User',
-        method: 'PUT'
-      },
-      {
-        route: '/admin/user/updatebulk',
-        role: 'User',
-        method: 'PUT' 
-      },
-      {
-        route: '/admin/user/updatebulk',
-        role: 'Admin',
-        method: 'PUT' 
-      },
-      {
-        route: '/admin/user/updatebulk',
-        role: 'System_User',
-        method: 'PUT' 
-      },
-      {
-        route: '/admin/user/softdelete/:id',
-        role: 'User',
-        method: 'PUT' 
-      },
-      {
-        route: '/admin/user/softdelete/:id',
-        role: 'Admin',
-        method: 'PUT' 
-      },
-      {
-        route: '/admin/user/softdelete/:id',
-        role: 'System_User',
-        method: 'PUT'
-      },
-      {
-        route: '/admin/user/softdeletemany',
-        role: 'User',
-        method: 'PUT' 
-      },
-      {
-        route: '/admin/user/softdeletemany',
-        role: 'Admin',
-        method: 'PUT' 
-      },
-      {
-        route: '/admin/user/softdeletemany',
-        role: 'System_User',
-        method: 'PUT'
-      },
-      {
-        route: '/admin/user/delete/:id',
-        role: 'User',
-        method: 'DELETE' 
-      },
-      {
-        route: '/admin/user/delete/:id',
-        role: 'Admin',
-        method: 'DELETE' 
-      },
-      {
-        route: '/admin/user/delete/:id',
-        role: 'System_User',
-        method: 'DELETE'
-      },
-      {
-        route: '/admin/user/deletemany',
-        role: 'User',
-        method: 'POST' 
-      },
-      {
-        route: '/admin/user/deletemany',
-        role: 'Admin',
-        method: 'POST' 
-      },
-      {
-        route: '/admin/user/deletemany',
-        role: 'System_User',
-        method: 'POST'
       },
       {
         route: '/admin/customer/create',
@@ -314,8 +109,18 @@ async function seedRouteRole () {
       },
       {
         route: '/admin/customer/addbulk',
+        role: 'User',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/customer/addbulk',
         role: 'System_User',
         method: 'POST'
+      },
+      {
+        route: '/admin/customer/list',
+        role: 'User',
+        method: 'POST' 
       },
       {
         route: '/admin/customer/list',
@@ -324,8 +129,18 @@ async function seedRouteRole () {
       },
       {
         route: '/admin/customer/:id',
+        role: 'User',
+        method: 'GET' 
+      },
+      {
+        route: '/admin/customer/:id',
         role: 'System_User',
         method: 'GET' 
+      },
+      {
+        route: '/admin/customer/:id',
+        role: 'User',
+        method: 'POST' 
       },
       {
         route: '/admin/customer/:id',
@@ -334,7 +149,17 @@ async function seedRouteRole () {
       },
       {
         route: '/admin/customer/count',
+        role: 'User',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/customer/count',
         role: 'System_User',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/customer/aggregate',
+        role: 'User',
         method: 'POST' 
       },
       {
@@ -378,13 +203,8 @@ async function seedRouteRole () {
         method: 'POST'
       },
       {
-        route: '/admin/task/create',
-        role: 'System_User',
-        method: 'POST' 
-      },
-      {
-        route: '/admin/task/addbulk',
-        role: 'System_User',
+        route: '/admin/task/list',
+        role: 'User',
         method: 'POST' 
       },
       {
@@ -394,12 +214,27 @@ async function seedRouteRole () {
       },
       {
         route: '/admin/task/:id',
-        role: 'System_User',
+        role: 'User',
         method: 'GET' 
       },
       {
         route: '/admin/task/:id',
         role: 'System_User',
+        method: 'GET' 
+      },
+      {
+        route: '/admin/task/:id',
+        role: 'User',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/task/:id',
+        role: 'System_User',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/task/count',
+        role: 'User',
         method: 'POST' 
       },
       {
@@ -409,6 +244,21 @@ async function seedRouteRole () {
       },
       {
         route: '/admin/task/aggregate',
+        role: 'User',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/task/aggregate',
+        role: 'System_User',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/task/create',
+        role: 'System_User',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/task/addbulk',
         role: 'System_User',
         method: 'POST' 
       },
@@ -448,13 +298,8 @@ async function seedRouteRole () {
         method: 'POST'
       },
       {
-        route: '/admin/todo/create',
-        role: 'System_User',
-        method: 'POST' 
-      },
-      {
-        route: '/admin/todo/addbulk',
-        role: 'System_User',
+        route: '/admin/todo/list',
+        role: 'User',
         method: 'POST' 
       },
       {
@@ -464,12 +309,27 @@ async function seedRouteRole () {
       },
       {
         route: '/admin/todo/:id',
-        role: 'System_User',
+        role: 'User',
         method: 'GET' 
       },
       {
         route: '/admin/todo/:id',
         role: 'System_User',
+        method: 'GET' 
+      },
+      {
+        route: '/admin/todo/:id',
+        role: 'User',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/todo/:id',
+        role: 'System_User',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/todo/count',
+        role: 'User',
         method: 'POST' 
       },
       {
@@ -479,6 +339,21 @@ async function seedRouteRole () {
       },
       {
         route: '/admin/todo/aggregate',
+        role: 'User',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/todo/aggregate',
+        role: 'System_User',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/todo/create',
+        role: 'System_User',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/todo/addbulk',
         role: 'System_User',
         method: 'POST' 
       },
@@ -514,6 +389,216 @@ async function seedRouteRole () {
       },
       {
         route: '/admin/todo/deletemany',
+        role: 'System_User',
+        method: 'POST'
+      },
+      {
+        route: '/admin/user/create',
+        role: 'User',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/user/create',
+        role: 'Admin',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/user/create',
+        role: 'System_User',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/user/addbulk',
+        role: 'User',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/user/addbulk',
+        role: 'Admin',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/user/addbulk',
+        role: 'System_User',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/user/list',
+        role: 'User',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/user/list',
+        role: 'Admin',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/user/list',
+        role: 'System_User',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/user/:id',
+        role: 'User',
+        method: 'GET' 
+      },
+      {
+        route: '/admin/user/:id',
+        role: 'Admin',
+        method: 'GET' 
+      },
+      {
+        route: '/admin/user/:id',
+        role: 'System_User',
+        method: 'GET' 
+      },
+      {
+        route: '/admin/user/:id',
+        role: 'User',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/user/:id',
+        role: 'Admin',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/user/:id',
+        role: 'System_User',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/user/count',
+        role: 'User',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/user/count',
+        role: 'Admin',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/user/count',
+        role: 'System_User',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/user/aggregate',
+        role: 'User',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/user/aggregate',
+        role: 'Admin',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/user/aggregate',
+        role: 'System_User',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/user/update/:id',
+        role: 'User',
+        method: 'PUT' 
+      },
+      {
+        route: '/admin/user/update/:id',
+        role: 'Admin',
+        method: 'PUT' 
+      },
+      {
+        route: '/admin/user/update/:id',
+        role: 'System_User',
+        method: 'PUT' 
+      },
+      {
+        route: '/admin/user/partial-update/:id',
+        role: 'User',
+        method: 'PUT'
+      },
+      {
+        route: '/admin/user/partial-update/:id',
+        role: 'Admin',
+        method: 'PUT'
+      },
+      {
+        route: '/admin/user/partial-update/:id',
+        role: 'System_User',
+        method: 'PUT'
+      },
+      {
+        route: '/admin/user/updatebulk',
+        role: 'User',
+        method: 'PUT' 
+      },
+      {
+        route: '/admin/user/updatebulk',
+        role: 'Admin',
+        method: 'PUT' 
+      },
+      {
+        route: '/admin/user/updatebulk',
+        role: 'System_User',
+        method: 'PUT' 
+      },
+      {
+        route: '/admin/user/softdelete/:id',
+        role: 'User',
+        method: 'PUT' 
+      },
+      {
+        route: '/admin/user/softdelete/:id',
+        role: 'Admin',
+        method: 'PUT' 
+      },
+      {
+        route: '/admin/user/softdelete/:id',
+        role: 'System_User',
+        method: 'PUT'
+      },
+      {
+        route: '/admin/user/softdeletemany',
+        role: 'User',
+        method: 'PUT' 
+      },
+      {
+        route: '/admin/user/softdeletemany',
+        role: 'Admin',
+        method: 'PUT' 
+      },
+      {
+        route: '/admin/user/softdeletemany',
+        role: 'System_User',
+        method: 'PUT'
+      },
+      {
+        route: '/admin/user/delete/:id',
+        role: 'User',
+        method: 'DELETE' 
+      },
+      {
+        route: '/admin/user/delete/:id',
+        role: 'Admin',
+        method: 'DELETE' 
+      },
+      {
+        route: '/admin/user/delete/:id',
+        role: 'System_User',
+        method: 'DELETE'
+      },
+      {
+        route: '/admin/user/deletemany',
+        role: 'User',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/user/deletemany',
+        role: 'Admin',
+        method: 'POST' 
+      },
+      {
+        route: '/admin/user/deletemany',
         role: 'System_User',
         method: 'POST'
       },
@@ -938,213 +1023,8 @@ async function seedRouteRole () {
         method: 'POST'
       },
       {
-        route: '/device/api/v1/user/create',
+        route: '/device/api/v1/customer/create',
         role: 'User',
-        method: 'POST' 
-      },
-      {
-        route: '/device/api/v1/user/create',
-        role: 'Admin',
-        method: 'POST' 
-      },
-      {
-        route: '/device/api/v1/user/create',
-        role: 'System_User',
-        method: 'POST'
-      },
-      {
-        route: '/device/api/v1/user/addbulk',
-        role: 'User',
-        method: 'POST' 
-      },
-      {
-        route: '/device/api/v1/user/addbulk',
-        role: 'Admin',
-        method: 'POST' 
-      },
-      {
-        route: '/device/api/v1/user/addbulk',
-        role: 'System_User',
-        method: 'POST'
-      },
-      {
-        route: '/device/api/v1/user/list',
-        role: 'User',
-        method: 'POST' 
-      },
-      {
-        route: '/device/api/v1/user/list',
-        role: 'Admin',
-        method: 'POST' 
-      },
-      {
-        route: '/device/api/v1/user/list',
-        role: 'System_User',
-        method: 'POST'
-      },
-      {
-        route: '/device/api/v1/user/:id',
-        role: 'User',
-        method: 'GET' 
-      },
-      {
-        route: '/device/api/v1/user/:id',
-        role: 'Admin',
-        method: 'GET' 
-      },
-      {
-        route: '/device/api/v1/user/:id',
-        role: 'System_User',
-        method: 'GET'
-      },
-      {
-        route: '/device/api/v1/user/:id',
-        role: 'User',
-        method: 'POST' 
-      },
-      {
-        route: '/device/api/v1/user/:id',
-        role: 'Admin',
-        method: 'POST' 
-      },
-      {
-        route: '/device/api/v1/user/:id',
-        role: 'System_User',
-        method: 'POST'
-      },
-      {
-        route: '/device/api/v1/user/count',
-        role: 'User',
-        method: 'POST' 
-      },
-      {
-        route: '/device/api/v1/user/count',
-        role: 'Admin',
-        method: 'POST' 
-      },
-      {
-        route: '/device/api/v1/user/count',
-        role: 'System_User',
-        method: 'POST'
-      },
-      {
-        route: '/device/api/v1/user/aggregate',
-        role: 'User',
-        method: 'POST'
-      },
-      {
-        route: '/device/api/v1/user/aggregate',
-        role: 'Admin',
-        method: 'POST'
-      },
-      {
-        route: '/device/api/v1/user/aggregate',
-        role: 'System_User',
-        method: 'POST'
-      },
-      {
-        route: '/device/api/v1/user/update/:id',
-        role: 'User',
-        method: 'PUT'
-      },
-      {
-        route: '/device/api/v1/user/update/:id',
-        role: 'Admin',
-        method: 'PUT'
-      },
-      {
-        route: '/device/api/v1/user/update/:id',
-        role: 'System_User',
-        method: 'PUT'
-      },
-      {
-        route: '/device/api/v1/user/partial-update/:id',
-        role: 'User',
-        method: 'PUT'
-      },
-      {
-        route: '/device/api/v1/user/partial-update/:id',
-        role: 'Admin',
-        method: 'PUT'
-      },
-      {
-        route: '/device/api/v1/user/partial-update/:id',
-        role: 'System_User',
-        method: 'PUT'
-      },
-      {
-        route: '/device/api/v1/user/updatebulk',
-        role: 'User',
-        method: 'PUT'
-      },
-      {
-        route: '/device/api/v1/user/updatebulk',
-        role: 'Admin',
-        method: 'PUT'
-      },
-      {
-        route: '/device/api/v1/user/updatebulk',
-        role: 'System_User',
-        method: 'PUT'
-      },
-      {
-        route: '/device/api/v1/user/softdelete/:id',
-        role: 'User',
-        method: 'PUT'
-      },
-      {
-        route: '/device/api/v1/user/softdelete/:id',
-        role: 'Admin',
-        method: 'PUT'
-      },
-      {
-        route: '/device/api/v1/user/softdelete/:id',
-        role: 'System_User',
-        method: 'PUT'
-      },
-      {
-        route: '/device/api/v1/user/softdeletemany',
-        role: 'User',
-        method: 'PUT'
-      },
-      {
-        route: '/device/api/v1/user/softdeletemany',
-        role: 'Admin',
-        method: 'PUT'
-      },
-      {
-        route: '/device/api/v1/user/softdeletemany',
-        role: 'System_User',
-        method: 'PUT'
-      },
-      {
-        route: '/device/api/v1/user/delete/:id',
-        role: 'User',
-        method: 'DELETE'
-      },
-      {
-        route: '/device/api/v1/user/delete/:id',
-        role: 'Admin',
-        method: 'DELETE'
-      },
-      {
-        route: '/device/api/v1/user/delete/:id',
-        role: 'System_User',
-        method: 'DELETE'
-      },
-      {
-        route: '/device/api/v1/user/deletemany',
-        role: 'User',
-        method: 'POST'
-      },
-      {
-        route: '/device/api/v1/user/deletemany',
-        role: 'Admin',
-        method: 'POST'
-      },
-      {
-        route: '/device/api/v1/user/deletemany',
-        role: 'System_User',
         method: 'POST'
       },
       {
@@ -1154,8 +1034,18 @@ async function seedRouteRole () {
       },
       {
         route: '/device/api/v1/customer/addbulk',
+        role: 'User',
+        method: 'POST'
+      },
+      {
+        route: '/device/api/v1/customer/addbulk',
         role: 'System_User',
         method: 'POST'
+      },
+      {
+        route: '/device/api/v1/customer/list',
+        role: 'User',
+        method: 'POST' 
       },
       {
         route: '/device/api/v1/customer/list',
@@ -1164,8 +1054,18 @@ async function seedRouteRole () {
       },
       {
         route: '/device/api/v1/customer/:id',
+        role: 'User',
+        method: 'GET' 
+      },
+      {
+        route: '/device/api/v1/customer/:id',
         role: 'System_User',
         method: 'GET'
+      },
+      {
+        route: '/device/api/v1/customer/:id',
+        role: 'User',
+        method: 'POST' 
       },
       {
         route: '/device/api/v1/customer/:id',
@@ -1174,7 +1074,17 @@ async function seedRouteRole () {
       },
       {
         route: '/device/api/v1/customer/count',
+        role: 'User',
+        method: 'POST'
+      },
+      {
+        route: '/device/api/v1/customer/count',
         role: 'System_User',
+        method: 'POST'
+      },
+      {
+        route: '/device/api/v1/customer/aggregate',
+        role: 'User',
         method: 'POST'
       },
       {
@@ -1218,14 +1128,9 @@ async function seedRouteRole () {
         method: 'POST'
       },
       {
-        route: '/device/api/v1/task/create',
-        role: 'System_User',
-        method: 'POST'
-      },
-      {
-        route: '/device/api/v1/task/addbulk',
-        role: 'System_User',
-        method: 'POST'
+        route: '/device/api/v1/task/list',
+        role: 'User',
+        method: 'POST' 
       },
       {
         route: '/device/api/v1/task/list',
@@ -1234,8 +1139,18 @@ async function seedRouteRole () {
       },
       {
         route: '/device/api/v1/task/:id',
+        role: 'User',
+        method: 'GET' 
+      },
+      {
+        route: '/device/api/v1/task/:id',
         role: 'System_User',
         method: 'GET'
+      },
+      {
+        route: '/device/api/v1/task/:id',
+        role: 'User',
+        method: 'POST' 
       },
       {
         route: '/device/api/v1/task/:id',
@@ -1244,11 +1159,31 @@ async function seedRouteRole () {
       },
       {
         route: '/device/api/v1/task/count',
+        role: 'User',
+        method: 'POST' 
+      },
+      {
+        route: '/device/api/v1/task/count',
         role: 'System_User',
         method: 'POST'
       },
       {
         route: '/device/api/v1/task/aggregate',
+        role: 'User',
+        method: 'POST'
+      },
+      {
+        route: '/device/api/v1/task/aggregate',
+        role: 'System_User',
+        method: 'POST'
+      },
+      {
+        route: '/device/api/v1/task/create',
+        role: 'System_User',
+        method: 'POST'
+      },
+      {
+        route: '/device/api/v1/task/addbulk',
         role: 'System_User',
         method: 'POST'
       },
@@ -1288,14 +1223,9 @@ async function seedRouteRole () {
         method: 'POST'
       },
       {
-        route: '/device/api/v1/todo/create',
-        role: 'System_User',
-        method: 'POST'
-      },
-      {
-        route: '/device/api/v1/todo/addbulk',
-        role: 'System_User',
-        method: 'POST'
+        route: '/device/api/v1/todo/list',
+        role: 'User',
+        method: 'POST' 
       },
       {
         route: '/device/api/v1/todo/list',
@@ -1304,8 +1234,18 @@ async function seedRouteRole () {
       },
       {
         route: '/device/api/v1/todo/:id',
+        role: 'User',
+        method: 'GET' 
+      },
+      {
+        route: '/device/api/v1/todo/:id',
         role: 'System_User',
         method: 'GET'
+      },
+      {
+        route: '/device/api/v1/todo/:id',
+        role: 'User',
+        method: 'POST' 
       },
       {
         route: '/device/api/v1/todo/:id',
@@ -1314,11 +1254,31 @@ async function seedRouteRole () {
       },
       {
         route: '/device/api/v1/todo/count',
+        role: 'User',
+        method: 'POST' 
+      },
+      {
+        route: '/device/api/v1/todo/count',
         role: 'System_User',
         method: 'POST'
       },
       {
         route: '/device/api/v1/todo/aggregate',
+        role: 'User',
+        method: 'POST'
+      },
+      {
+        route: '/device/api/v1/todo/aggregate',
+        role: 'System_User',
+        method: 'POST'
+      },
+      {
+        route: '/device/api/v1/todo/create',
+        role: 'System_User',
+        method: 'POST'
+      },
+      {
+        route: '/device/api/v1/todo/addbulk',
         role: 'System_User',
         method: 'POST'
       },
@@ -1354,6 +1314,216 @@ async function seedRouteRole () {
       },
       {
         route: '/device/api/v1/todo/deletemany',
+        role: 'System_User',
+        method: 'POST'
+      },
+      {
+        route: '/device/api/v1/user/create',
+        role: 'User',
+        method: 'POST' 
+      },
+      {
+        route: '/device/api/v1/user/create',
+        role: 'Admin',
+        method: 'POST' 
+      },
+      {
+        route: '/device/api/v1/user/create',
+        role: 'System_User',
+        method: 'POST'
+      },
+      {
+        route: '/device/api/v1/user/addbulk',
+        role: 'User',
+        method: 'POST' 
+      },
+      {
+        route: '/device/api/v1/user/addbulk',
+        role: 'Admin',
+        method: 'POST' 
+      },
+      {
+        route: '/device/api/v1/user/addbulk',
+        role: 'System_User',
+        method: 'POST'
+      },
+      {
+        route: '/device/api/v1/user/list',
+        role: 'User',
+        method: 'POST' 
+      },
+      {
+        route: '/device/api/v1/user/list',
+        role: 'Admin',
+        method: 'POST' 
+      },
+      {
+        route: '/device/api/v1/user/list',
+        role: 'System_User',
+        method: 'POST'
+      },
+      {
+        route: '/device/api/v1/user/:id',
+        role: 'User',
+        method: 'GET' 
+      },
+      {
+        route: '/device/api/v1/user/:id',
+        role: 'Admin',
+        method: 'GET' 
+      },
+      {
+        route: '/device/api/v1/user/:id',
+        role: 'System_User',
+        method: 'GET'
+      },
+      {
+        route: '/device/api/v1/user/:id',
+        role: 'User',
+        method: 'POST' 
+      },
+      {
+        route: '/device/api/v1/user/:id',
+        role: 'Admin',
+        method: 'POST' 
+      },
+      {
+        route: '/device/api/v1/user/:id',
+        role: 'System_User',
+        method: 'POST'
+      },
+      {
+        route: '/device/api/v1/user/count',
+        role: 'User',
+        method: 'POST' 
+      },
+      {
+        route: '/device/api/v1/user/count',
+        role: 'Admin',
+        method: 'POST' 
+      },
+      {
+        route: '/device/api/v1/user/count',
+        role: 'System_User',
+        method: 'POST'
+      },
+      {
+        route: '/device/api/v1/user/aggregate',
+        role: 'User',
+        method: 'POST'
+      },
+      {
+        route: '/device/api/v1/user/aggregate',
+        role: 'Admin',
+        method: 'POST'
+      },
+      {
+        route: '/device/api/v1/user/aggregate',
+        role: 'System_User',
+        method: 'POST'
+      },
+      {
+        route: '/device/api/v1/user/update/:id',
+        role: 'User',
+        method: 'PUT'
+      },
+      {
+        route: '/device/api/v1/user/update/:id',
+        role: 'Admin',
+        method: 'PUT'
+      },
+      {
+        route: '/device/api/v1/user/update/:id',
+        role: 'System_User',
+        method: 'PUT'
+      },
+      {
+        route: '/device/api/v1/user/partial-update/:id',
+        role: 'User',
+        method: 'PUT'
+      },
+      {
+        route: '/device/api/v1/user/partial-update/:id',
+        role: 'Admin',
+        method: 'PUT'
+      },
+      {
+        route: '/device/api/v1/user/partial-update/:id',
+        role: 'System_User',
+        method: 'PUT'
+      },
+      {
+        route: '/device/api/v1/user/updatebulk',
+        role: 'User',
+        method: 'PUT'
+      },
+      {
+        route: '/device/api/v1/user/updatebulk',
+        role: 'Admin',
+        method: 'PUT'
+      },
+      {
+        route: '/device/api/v1/user/updatebulk',
+        role: 'System_User',
+        method: 'PUT'
+      },
+      {
+        route: '/device/api/v1/user/softdelete/:id',
+        role: 'User',
+        method: 'PUT'
+      },
+      {
+        route: '/device/api/v1/user/softdelete/:id',
+        role: 'Admin',
+        method: 'PUT'
+      },
+      {
+        route: '/device/api/v1/user/softdelete/:id',
+        role: 'System_User',
+        method: 'PUT'
+      },
+      {
+        route: '/device/api/v1/user/softdeletemany',
+        role: 'User',
+        method: 'PUT'
+      },
+      {
+        route: '/device/api/v1/user/softdeletemany',
+        role: 'Admin',
+        method: 'PUT'
+      },
+      {
+        route: '/device/api/v1/user/softdeletemany',
+        role: 'System_User',
+        method: 'PUT'
+      },
+      {
+        route: '/device/api/v1/user/delete/:id',
+        role: 'User',
+        method: 'DELETE'
+      },
+      {
+        route: '/device/api/v1/user/delete/:id',
+        role: 'Admin',
+        method: 'DELETE'
+      },
+      {
+        route: '/device/api/v1/user/delete/:id',
+        role: 'System_User',
+        method: 'DELETE'
+      },
+      {
+        route: '/device/api/v1/user/deletemany',
+        role: 'User',
+        method: 'POST'
+      },
+      {
+        route: '/device/api/v1/user/deletemany',
+        role: 'Admin',
+        method: 'POST'
+      },
+      {
+        route: '/device/api/v1/user/deletemany',
         role: 'System_User',
         method: 'POST'
       },
@@ -1816,7 +1986,7 @@ async function seedRouteRole () {
 async function seedUserRole (){
   try {
     let user = await dbService.findOne(model.user,{
-      'username':'Hardy.McClure51',
+      'username':'Matilda.Price33',
       'isActive':true,
       'isDeleted':false
     });
@@ -1825,7 +1995,7 @@ async function seedUserRole (){
       isActive: true,
       isDeleted: false
     }, { attributes: ['id'] });
-    if (user && user.isPasswordMatch('DasZpE7oOZLYItf') && userRole){
+    if (user && user.isPasswordMatch('E678RFIIoiNWSiJ') && userRole){
       let count = await dbService.count(model.userRole, {
         userId: user.id,
         roleId: userRole.id
@@ -1839,7 +2009,7 @@ async function seedUserRole (){
       }
     }
     let admin = await dbService.findOne(model.user,{
-      'username':'Lauren59',
+      'username':'Jalyn_Rowe41',
       'isActive':true,
       'isDeleted':false
     });
@@ -1848,7 +2018,7 @@ async function seedUserRole (){
       isActive: true,
       isDeleted: false
     }, { attributes: ['id'] });
-    if (admin && admin.isPasswordMatch('tPlKY0bDGSPwnD7') && adminRole){
+    if (admin && admin.isPasswordMatch('GopFY71GKlFtUlv') && adminRole){
       let count = await dbService.count(model.userRole, {
         userId: admin.id,
         roleId: adminRole.id
