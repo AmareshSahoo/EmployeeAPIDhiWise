@@ -48,30 +48,30 @@ const deleteUser = async (filter) =>{
     });
     if (user && user.length){
       user = user.map((obj) => obj.id);
-      const CustomerFilter2654 = { 'addedBy': { [Op.in]: user } };
-      const Customer6834 = await deleteCustomer(CustomerFilter2654);
-      const CustomerFilter3429 = { 'updatedBy': { [Op.in]: user } };
-      const Customer5763 = await deleteCustomer(CustomerFilter3429);
-      const TaskFilter3143 = { 'completedBy': { [Op.in]: user } };
-      const Task7025 = await deleteTask(TaskFilter3143);
-      const TaskFilter8327 = { 'updatedBy': { [Op.in]: user } };
-      const Task3808 = await deleteTask(TaskFilter8327);
-      const TaskFilter8705 = { 'addedBy': { [Op.in]: user } };
-      const Task3511 = await deleteTask(TaskFilter8705);
-      const ToDoFilter9102 = { 'addedBy': { [Op.in]: user } };
-      const ToDo1414 = await deleteToDo(ToDoFilter9102);
-      const ToDoFilter2394 = { 'updatedBy': { [Op.in]: user } };
-      const ToDo9937 = await deleteToDo(ToDoFilter2394);
-      const userFilter0617 = { 'addedBy': { [Op.in]: user } };
-      const user7363 = await deleteUser(userFilter0617);
-      const userFilter5352 = { 'updatedBy': { [Op.in]: user } };
-      const user5953 = await deleteUser(userFilter5352);
-      const userAuthSettingsFilter7794 = { 'userId': { [Op.in]: user } };
-      const userAuthSettings7073 = await deleteUserAuthSettings(userAuthSettingsFilter7794);
-      const userTokenFilter5962 = { 'userId': { [Op.in]: user } };
-      const userToken7938 = await deleteUserToken(userTokenFilter5962);
-      const userRoleFilter7802 = { 'userId': { [Op.in]: user } };
-      const userRole0480 = await deleteUserRole(userRoleFilter7802);
+      const CustomerFilter4519 = { 'addedBy': { [Op.in]: user } };
+      const Customer3533 = await deleteCustomer(CustomerFilter4519);
+      const CustomerFilter9927 = { 'updatedBy': { [Op.in]: user } };
+      const Customer2247 = await deleteCustomer(CustomerFilter9927);
+      const TaskFilter5415 = { 'completedBy': { [Op.in]: user } };
+      const Task1743 = await deleteTask(TaskFilter5415);
+      const TaskFilter8272 = { 'updatedBy': { [Op.in]: user } };
+      const Task5541 = await deleteTask(TaskFilter8272);
+      const TaskFilter8031 = { 'addedBy': { [Op.in]: user } };
+      const Task7468 = await deleteTask(TaskFilter8031);
+      const ToDoFilter3306 = { 'addedBy': { [Op.in]: user } };
+      const ToDo5265 = await deleteToDo(ToDoFilter3306);
+      const ToDoFilter5758 = { 'updatedBy': { [Op.in]: user } };
+      const ToDo6883 = await deleteToDo(ToDoFilter5758);
+      const userFilter5870 = { 'addedBy': { [Op.in]: user } };
+      const user2376 = await deleteUser(userFilter5870);
+      const userFilter8270 = { 'updatedBy': { [Op.in]: user } };
+      const user3671 = await deleteUser(userFilter8270);
+      const userAuthSettingsFilter2827 = { 'userId': { [Op.in]: user } };
+      const userAuthSettings9627 = await deleteUserAuthSettings(userAuthSettingsFilter2827);
+      const userTokenFilter4397 = { 'userId': { [Op.in]: user } };
+      const userToken7792 = await deleteUserToken(userTokenFilter4397);
+      const userRoleFilter3648 = { 'userId': { [Op.in]: user } };
+      const userRole7337 = await deleteUserRole(userRoleFilter3648);
       return await User.destroy({ where :filter });
     } else {
       return 'No user found.';
@@ -105,10 +105,10 @@ const deleteRole = async (filter) =>{
     });
     if (role && role.length){
       role = role.map((obj) => obj.id);
-      const routeRoleFilter0968 = { 'roleId': { [Op.in]: role } };
-      const routeRole7609 = await deleteRouteRole(routeRoleFilter0968);
-      const userRoleFilter8893 = { 'roleId': { [Op.in]: role } };
-      const userRole3357 = await deleteUserRole(userRoleFilter8893);
+      const routeRoleFilter7232 = { 'roleId': { [Op.in]: role } };
+      const routeRole0049 = await deleteRouteRole(routeRoleFilter7232);
+      const userRoleFilter7784 = { 'roleId': { [Op.in]: role } };
+      const userRole4152 = await deleteUserRole(userRoleFilter7784);
       return await Role.destroy({ where :filter });
     } else {
       return 'No role found.';
@@ -126,8 +126,8 @@ const deleteProjectRoute = async (filter) =>{
     });
     if (projectroute && projectroute.length){
       projectroute = projectroute.map((obj) => obj.id);
-      const routeRoleFilter5419 = { 'routeId': { [Op.in]: projectroute } };
-      const routeRole3817 = await deleteRouteRole(routeRoleFilter5419);
+      const routeRoleFilter2376 = { 'routeId': { [Op.in]: projectroute } };
+      const routeRole7907 = await deleteRouteRole(routeRoleFilter2376);
       return await ProjectRoute.destroy({ where :filter });
     } else {
       return 'No projectRoute found.';
@@ -355,30 +355,30 @@ const softDeleteUser = async (filter,updateBody, defaultValues = {}) =>{
     });
     if (user && user.length){
       user = user.map((obj) => obj.id);
-      const CustomerFilter4148 = { 'addedBy': { [Op.in]: user } };
-      const Customer1027 = await softDeleteCustomer(CustomerFilter4148,updateBody);
-      const CustomerFilter9921 = { 'updatedBy': { [Op.in]: user } };
-      const Customer0376 = await softDeleteCustomer(CustomerFilter9921,updateBody);
-      const TaskFilter4563 = { 'completedBy': { [Op.in]: user } };
-      const Task0301 = await softDeleteTask(TaskFilter4563,updateBody);
-      const TaskFilter7335 = { 'updatedBy': { [Op.in]: user } };
-      const Task2116 = await softDeleteTask(TaskFilter7335,updateBody);
-      const TaskFilter1983 = { 'addedBy': { [Op.in]: user } };
-      const Task4233 = await softDeleteTask(TaskFilter1983,updateBody);
-      const ToDoFilter6136 = { 'addedBy': { [Op.in]: user } };
-      const ToDo6932 = await softDeleteToDo(ToDoFilter6136,updateBody);
-      const ToDoFilter1510 = { 'updatedBy': { [Op.in]: user } };
-      const ToDo0766 = await softDeleteToDo(ToDoFilter1510,updateBody);
-      const userFilter6527 = { 'addedBy': { [Op.in]: user } };
-      const user7624 = await softDeleteUser(userFilter6527,updateBody);
-      const userFilter4763 = { 'updatedBy': { [Op.in]: user } };
-      const user8244 = await softDeleteUser(userFilter4763,updateBody);
-      const userAuthSettingsFilter7676 = { 'userId': { [Op.in]: user } };
-      const userAuthSettings0694 = await softDeleteUserAuthSettings(userAuthSettingsFilter7676,updateBody);
-      const userTokenFilter2472 = { 'userId': { [Op.in]: user } };
-      const userToken6223 = await softDeleteUserToken(userTokenFilter2472,updateBody);
-      const userRoleFilter6739 = { 'userId': { [Op.in]: user } };
-      const userRole6186 = await softDeleteUserRole(userRoleFilter6739,updateBody);
+      const CustomerFilter4687 = { 'addedBy': { [Op.in]: user } };
+      const Customer3822 = await softDeleteCustomer(CustomerFilter4687,updateBody);
+      const CustomerFilter3632 = { 'updatedBy': { [Op.in]: user } };
+      const Customer8092 = await softDeleteCustomer(CustomerFilter3632,updateBody);
+      const TaskFilter5809 = { 'completedBy': { [Op.in]: user } };
+      const Task6679 = await softDeleteTask(TaskFilter5809,updateBody);
+      const TaskFilter4230 = { 'updatedBy': { [Op.in]: user } };
+      const Task3246 = await softDeleteTask(TaskFilter4230,updateBody);
+      const TaskFilter3922 = { 'addedBy': { [Op.in]: user } };
+      const Task9209 = await softDeleteTask(TaskFilter3922,updateBody);
+      const ToDoFilter8353 = { 'addedBy': { [Op.in]: user } };
+      const ToDo6000 = await softDeleteToDo(ToDoFilter8353,updateBody);
+      const ToDoFilter9609 = { 'updatedBy': { [Op.in]: user } };
+      const ToDo8647 = await softDeleteToDo(ToDoFilter9609,updateBody);
+      const userFilter9610 = { 'addedBy': { [Op.in]: user } };
+      const user3258 = await softDeleteUser(userFilter9610,updateBody);
+      const userFilter2257 = { 'updatedBy': { [Op.in]: user } };
+      const user3673 = await softDeleteUser(userFilter2257,updateBody);
+      const userAuthSettingsFilter1027 = { 'userId': { [Op.in]: user } };
+      const userAuthSettings2693 = await softDeleteUserAuthSettings(userAuthSettingsFilter1027,updateBody);
+      const userTokenFilter7050 = { 'userId': { [Op.in]: user } };
+      const userToken0985 = await softDeleteUserToken(userTokenFilter7050,updateBody);
+      const userRoleFilter6555 = { 'userId': { [Op.in]: user } };
+      const userRole1111 = await softDeleteUserRole(userRoleFilter6555,updateBody);
       return await User.update({
         ...updateBody,
         ...defaultValues
@@ -421,10 +421,10 @@ const softDeleteRole = async (filter,updateBody, defaultValues = {}) =>{
     });
     if (role && role.length){
       role = role.map((obj) => obj.id);
-      const routeRoleFilter1047 = { 'roleId': { [Op.in]: role } };
-      const routeRole0437 = await softDeleteRouteRole(routeRoleFilter1047,updateBody);
-      const userRoleFilter5891 = { 'roleId': { [Op.in]: role } };
-      const userRole6718 = await softDeleteUserRole(userRoleFilter5891,updateBody);
+      const routeRoleFilter6496 = { 'roleId': { [Op.in]: role } };
+      const routeRole1535 = await softDeleteRouteRole(routeRoleFilter6496,updateBody);
+      const userRoleFilter3664 = { 'roleId': { [Op.in]: role } };
+      const userRole5073 = await softDeleteUserRole(userRoleFilter3664,updateBody);
       return await Role.update({
         ...updateBody,
         ...defaultValues
@@ -445,8 +445,8 @@ const softDeleteProjectRoute = async (filter,updateBody, defaultValues = {}) =>{
     });
     if (projectroute && projectroute.length){
       projectroute = projectroute.map((obj) => obj.id);
-      const routeRoleFilter3006 = { 'routeId': { [Op.in]: projectroute } };
-      const routeRole5360 = await softDeleteRouteRole(routeRoleFilter3006,updateBody);
+      const routeRoleFilter9506 = { 'routeId': { [Op.in]: projectroute } };
+      const routeRole2688 = await softDeleteRouteRole(routeRoleFilter9506,updateBody);
       return await ProjectRoute.update({
         ...updateBody,
         ...defaultValues

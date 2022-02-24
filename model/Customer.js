@@ -62,7 +62,7 @@ let Customer = sequelize.define('Customer',{
       'operator':'',
       'value':''
     }],
-    'name':'index_firstName_index_200981'
+    'name':'index_firstName_index_543704'
   },{
     'using':'BTREE',
     'fields':[{
@@ -72,7 +72,7 @@ let Customer = sequelize.define('Customer',{
       'operator':'',
       'value':''
     }],
-    'name':'index_lastName_index_736286'
+    'name':'index_lastName_index_838567'
   }]
 }
 );

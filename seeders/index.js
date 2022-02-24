@@ -13,27 +13,27 @@ const { Op } = require('sequelize');
 async function seedUser () {
   try {
     let user = await dbService.findOne(model.user,{
-      'username':'Cleveland.Oberbrunner',
+      'username':'Hardy.McClure51',
       'isActive':true,
       'isDeleted':false
     });
-    if (!user || !user.isPasswordMatch('VXtl2ubl5O5k39U') ) {
+    if (!user || !user.isPasswordMatch('DasZpE7oOZLYItf') ) {
       let user = {
-        'password':'VXtl2ubl5O5k39U',
-        'username':'Cleveland.Oberbrunner',
+        'password':'DasZpE7oOZLYItf',
+        'username':'Hardy.McClure51',
         'role':authConstant.USER_ROLE.User
       };
       await dbService.createOne(model.user,user);
     }
     let admin = await dbService.findOne(model.user,{
-      'username':'Maud35',
+      'username':'Lauren59',
       'isActive':true,
       'isDeleted':false
     });
-    if (!admin || !admin.isPasswordMatch('X5twzKnUYbiGdKb') ) {
+    if (!admin || !admin.isPasswordMatch('tPlKY0bDGSPwnD7') ) {
       let admin = {
-        'password':'X5twzKnUYbiGdKb',
-        'username':'Maud35',
+        'password':'tPlKY0bDGSPwnD7',
+        'username':'Lauren59',
         'role':authConstant.USER_ROLE.Admin
       };
       await dbService.createOne(model.user,admin);
@@ -1816,7 +1816,7 @@ async function seedRouteRole () {
 async function seedUserRole (){
   try {
     let user = await dbService.findOne(model.user,{
-      'username':'Cleveland.Oberbrunner',
+      'username':'Hardy.McClure51',
       'isActive':true,
       'isDeleted':false
     });
@@ -1825,7 +1825,7 @@ async function seedUserRole (){
       isActive: true,
       isDeleted: false
     }, { attributes: ['id'] });
-    if (user && user.isPasswordMatch('VXtl2ubl5O5k39U') && userRole){
+    if (user && user.isPasswordMatch('DasZpE7oOZLYItf') && userRole){
       let count = await dbService.count(model.userRole, {
         userId: user.id,
         roleId: userRole.id
@@ -1839,7 +1839,7 @@ async function seedUserRole (){
       }
     }
     let admin = await dbService.findOne(model.user,{
-      'username':'Maud35',
+      'username':'Lauren59',
       'isActive':true,
       'isDeleted':false
     });
@@ -1848,7 +1848,7 @@ async function seedUserRole (){
       isActive: true,
       isDeleted: false
     }, { attributes: ['id'] });
-    if (admin && admin.isPasswordMatch('X5twzKnUYbiGdKb') && adminRole){
+    if (admin && admin.isPasswordMatch('tPlKY0bDGSPwnD7') && adminRole){
       let count = await dbService.count(model.userRole, {
         userId: admin.id,
         roleId: adminRole.id
